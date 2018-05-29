@@ -1,0 +1,94 @@
+.topbar{
+  background: #334D7F;
+  .group-link{
+    text-align: right;
+    padding: 9px 60px; 
+    a, a:hover, a:focus {
+      text-decoration: none;
+    }
+    .top-link{
+      font-size: 16px;
+      padding: 9px; 
+      color: #fff;
+    }
+  }
+}
+.bottom-head{
+  background: #F0F8FA;
+  .navbar{
+    width: 100%;
+    padding: 2px;
+    .slogan-logo{
+      position: relative;
+    }
+    .navbar-toggler {
+      border: 1px solid #DDDDDD;
+      position: absolute;
+      top: 12px;
+      right: 5px;
+    }
+    .navbar-toggler-icon{
+      color: #334D7F;
+      font-size: 25px;
+      width: 0.8em;
+      height: 1em;
+    }
+    .functions {
+      margin-top: 3px;
+      padding-right: 35px;
+      .item-functions{
+        margin-right: 7px;
+      }
+      .hotline{
+        margin-top: 5px;
+        font-size: 14px;
+        color: #EC2F00;
+        font-weight: 500;
+      }
+    }
+  }
+  .navbar-brand{
+    padding-left: 20px;
+    a{
+      color: #334d7f !important;
+      font-size: 20px;
+      font-weight: 900;
+      font-family: Arial;
+    }
+  }
+  .logo{
+    max-height: 60px;
+  }
+  @media screen and (min-width: 768px){
+    .slogan-logo{
+      display: flex;
+      vertical-align: middle;
+      align-items: center;
+    }
+  }
+  @media screen and (min-width: 992px){
+    .slogan-logo{
+      padding-left: 120px;
+    }
+    .navbar-expand-lg .navbar-collapse {
+      display: block !important;
+    }
+    .collapse:not(.show) {
+        display: block;
+    }
+  }
+  @media screen and (max-width: 991px){
+    .slogan-logo{
+      text-align: center;
+    }
+    #navbarSupportedContent {
+      padding-right: 8px;
+    }
+    .navbar-brand{
+      a{
+        font-weight: 700;
+        font-family: Arial;
+      }
+    }
+  }
+}

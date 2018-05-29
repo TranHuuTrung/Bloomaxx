@@ -1,0 +1,73 @@
+<app-frames>
+  <div class="container content-main">
+    <div class="row">
+      <div class="login-box col-md-5 offset-md-7">
+        <div class="card card-login">
+          <div class="card-header text-center">
+            {{ 'Đăng nhập' | uppercase}}
+          </div>
+          <div class="card-body">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
+              <div class="form-group">
+                <label for="">Tài khoản</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                      <i class="fa fa-user"></i>
+                    </span>
+                  </div>
+                  <input 
+                    type="text"
+                    formControlName="username" 
+                    [ngClass]="{'is-invalid': (submitted && f.username.errors)|| (submitted && isWrong) , 'is-valid': submitted && f.username.valid}"
+                    class="form-control" 
+                    placeholder="username" 
+                    aria-describedby="basic-addon1"
+                  >
+                  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="submitted && f.username.errors.required">Bạn không thể để trống</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="">Mật khẩu</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon2">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                  </div>
+                  <input 
+                    type="password" 
+                    formControlName="password"
+                    [ngClass]="{'is-invalid': (submitted && f.username.errors)|| (submitted && isWrong), 'is-valid': submitted && f.password.valid}"
+                    class="form-control" 
+                    placeholder="password" 
+                    aria-describedby="basic-addon2"
+                  >
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="submitted && f.password.errors.required">Bạn không thể để trống</div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="submitted && isWrong" class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                Thông tin của bạn bị sai!
+              </div>
+              <button class="btn btn-primary btn-login">Đăng nhập</button>
+              <div class="forgot-pass text-right">
+                <a href=""><i>Lấy lại mật khẩu</i></a>
+              </div>
+              <div class="form-group">
+                <p>Bạn chưa có tài khoản?</p>
+                <a href="" class="btn btn-primary">Đăng kí</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</app-frames>
+  
