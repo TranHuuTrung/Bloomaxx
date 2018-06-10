@@ -45,9 +45,9 @@ export class JwtService {
   destroyToken() {
     window.localStorage.removeItem('jwtToken');
     window.localStorage.removeItem('userId');
-    window.localStorage.removeItem('permission');
-    window.localStorage.removeItem('userObj');
-    window.localStorage.removeItem('username');
+    // window.localStorage.removeItem('permission');
+    // window.localStorage.removeItem('userObj');
+    // window.localStorage.removeItem('username');
   }
 
   setSessionTimeout() {

@@ -24,7 +24,7 @@ export class ApiService {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong,
       console.error(
-        `Backend returned code ${error.status}, ` +
+        `Backend returned code ${JSON.stringify(error)}, ` +
         `body was: ${error.error}`);
     }
     // return an observable with a user-facing error message
@@ -37,11 +37,8 @@ export class ApiService {
   private get httpOptions() {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      // 'Authorization': `${this.jwtService.getToken()?this.jwtService.getToken():''}`
+      'Authorization': `${this.jwtService.getToken()}`?`Bearer ${this.jwtService.getToken()}`:''
     });
-    if (this.jwtService.getToken()) {
-      headers['Authorization'] = `${this.jwtService.getToken()}`;
-    }
     return {
       'headers': headers
     };
@@ -65,17 +62,6 @@ export class ApiService {
       .pipe(
         map(data => data['result']),
         // tap(result => result['result']),
-        catchError(this.handleError)
-      )
-  }
-
-  postlogin(path: string, body: Object = {}): Observable<any> {
-    return this.http.post(
-      `${environment.api_url}${path}`,
-      JSON.stringify(body)
-    )
-      .pipe(
-        tap(result => console.log(result)),
         catchError(this.handleError)
       )
   }

@@ -1,0 +1,58 @@
+<app-login-header></app-login-header>
+<div class="wrapper container">
+  <div class="row title-head-signup">
+    <div class="col-md-12 text-center">
+      <h3>{{ 'Đăng kí'| uppercase}}</h3>
+    </div>
+  </div>
+  
+  <div class="row selected-method">
+    <div class="col-md-4">
+      <span style="color: red;">*</span>
+      <i>Trường bắt buộc</i>
+    </div>
+    <div class="col-md-8">
+      <div class="row radio-selected">
+        <div class="col-md-4">
+          <div class="form-check check1">
+            <input 
+              class="form-check-input" 
+              type="radio" 
+              name="MethodSignUp" 
+              value="personal" 
+              [(ngModel)]="userType"
+            >
+            <label class="form-check-label">
+              Cá nhân
+            </label>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="form-check">
+            <input 
+              class="form-check-input" 
+              type="radio" 
+              name="MethodSignUp" 
+              value="company"
+              [(ngModel)]="userType" standAlone="true"
+            >
+            <label class="form-check-label">
+              Công ty/ Tổ chức
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row table-content">
+    <div *ngIf="userType === 'personal'" class="col-md-10 offset-md-2">
+      <app-personal></app-personal>
+    </div> 
+    <div *ngIf="userType === 'company'" class="col-md-10 offset-md-2">
+      <app-company></app-company>
+    </div>    
+  </div>
+  
+  
+</div>

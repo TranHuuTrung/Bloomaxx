@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  api_url : "http://115.79.35.119:5656/bloomaxx_portal_dev/",
+  api_url : "http://115.79.35.119:6789/api/user/",
   production: false
 };
 

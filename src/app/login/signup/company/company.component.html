@@ -1,0 +1,134 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmitSignUp()"> 
+  <!-- Neu la choose company method signup -->
+  <div class="company">
+    <div class="row form-group">
+      <div class="col-md-3">
+        Tên công ty/Tổ chức &nbsp;<span style="color: red;">*</span>
+      </div>
+      <div class="col-md-5">
+        <input 
+          type="text" 
+          class="form-control"
+          formControlName="tencongty"
+          >
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-3">
+        Địa chỉ
+      </div>
+      <div class="col-md-5">
+          <input 
+          type="text" 
+          class="form-control"
+          formControlName="diachiCongty"
+          >
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-3">
+        Số điện thoại công ty
+      </div>
+      <div class="col-md-5">
+          <input 
+          type="text" 
+          class="form-control"
+          formControlName="sdtCongty"
+          >
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-3">
+        Mã số thuế  &nbsp;<span style="color: red;">*</span>
+      </div>
+      <div class="col-md-5">
+          <input 
+          type="text" 
+          class="form-control"
+          formControlName="masothue"
+          >
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-3">
+        Người đại diện  &nbsp;<span style="color: red;">*</span>
+      </div>
+      <div class="col-md-5">
+          <input 
+          type="text" 
+          class="form-control"
+          formControlName="nguoidaidien"
+          >
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-3">
+        Số điện thoại &nbsp;<span style="color: red;">*</span>
+      </div>
+      <div class="col-md-5">
+        <input 
+          type="text" 
+          class="form-control"
+          formControlName="sdtnguoidaidien"
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-md-3">
+      Email &nbsp; 
+      <span style="color: red">*</span>
+    </div>
+    <div class="col-md-5">
+        <input 
+        type="text" 
+        class="form-control"
+        formControlName="email"
+        >
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-md-3">
+      Mật khẩu &nbsp; 
+      <span style="color: red">*</span>
+    </div>
+    <div class="col-md-5">
+        <input 
+        type="password" 
+        class="form-control"
+        formControlName="password"
+        >
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-md-3">
+      Nhập lại mật khẩu &nbsp; 
+      <span style="color: red">*</span>
+    </div>
+    <div class="col-md-5">
+        <input 
+        type="password" 
+        class="form-control"
+        formControlName="repassword"
+        >
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-md-3">
+      Mã xác nhận &nbsp; 
+      <span style="color: red">*</span>
+    </div>
+    <div class="col-md-5">
+        <re-captcha (resolved)="resolved($event)" siteKey="6LdcqVwUAAAAAL-tauTFDnb-nZseFOLSe-3i-dgs"></re-captcha>
+    </div>
+  </div>
+  
+  <div class="row form-group">
+    <div class="col-md-5 offset-md-3">
+      <button class="btn btn-sm btn-success">Tạo tài khoản</button>
+      &nbsp;
+      <a href="" class="btn btn-sm btn-primary">Quay lại</a>
+    </div>
+  </div>
+</form>

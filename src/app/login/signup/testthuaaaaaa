@@ -1,0 +1,340 @@
+<app-login-header></app-login-header>
+<div class="wrapper container">
+  <div class="row title-head-signup">
+    <div class="col-md-12 text-center">
+      <h3>{{ 'Đăng kí'| uppercase}}</h3>
+    </div>
+  </div>
+  
+  <div class="row selected-method">
+    <div class="col-md-4">
+      <span style="color: red;">*</span>
+      <i>Trường bắt buộc</i>
+    </div>
+    <div class="col-md-8">
+      <div class="row radio-selected">
+        <div class="col-md-4">
+          <div class="form-check check1">
+            <input 
+              class="form-check-input" 
+              type="radio" 
+              name="MethodSignUp" 
+              value="personal" 
+              [(ngModel)]="userType"
+            >
+            <label class="form-check-label">
+              Cá nhân
+            </label>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="form-check">
+            <input 
+              class="form-check-input" 
+              type="radio" 
+              name="MethodSignUp" 
+              value="company"
+              [(ngModel)]="userType" standAlone="true"
+            >
+            <label class="form-check-label">
+              Công ty/ Tổ chức
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row table-content">
+    <div class="col-md-10 offset-md-2">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmitSignUp()">
+        <!-- Neu la choose person method signup -->
+        <div *ngIf="userType === 'personal'" class="person">
+          <div class="row form-group">
+            <div class="col-md-3">
+              Họ và tên &nbsp;<span style="color: red;">*</span>
+            </div>
+            <div class="col-md-5">
+              <input 
+                type="text" 
+                class="form-control"
+                formControlName="hotenPesonal"  
+              >
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-3">
+              Số điện thoại &nbsp;<span style="color: red;">*</span>
+            </div>
+            <div class="col-md-5">
+              <input 
+                type="text" 
+                class="form-control"
+                formControlName="sdtPersonal"  
+              >
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-3">
+              Ngày sinh &nbsp;<span style="color: red;">*</span>
+            </div>
+            <div class="col-md-5">
+              <div class="input-group">
+                <input 
+                  type="date" 
+                  class="form-control" 
+                  id="birthday" 
+                  placeholder="Amount"
+                  formControlName="ngaysinhPersonal"
+                  >
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="birthday">
+                    <i class="fa fa-calendar"></i>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-3">
+              Địa chỉ
+            </div>
+            <div class="col-md-5">
+              <input 
+                type="text" 
+                class="form-control"
+                formControlName="diachiPersonal"
+                >
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-3">
+              Giới tính
+            </div>
+            <div class="col-md-5">
+              <div class="row pl-15">
+                <div class="form-check col-xs-4 col-sm-3 col-md-3">
+                  <input 
+                    class="form-check-input" 
+                    type="radio" 
+                    formControlName="sexualy"
+                    name="sexualy" 
+                    id="male" 
+                    value="male" 
+                    checked
+                    >
+                  <label class="form-check-label" for="male">
+                    Nam
+                  </label>
+                </div>
+                <div class="form-check col-xs-4 col-sm-3 col-md-3">
+                  <input 
+                    class="form-check-input" 
+                    type="radio"
+                    formControlName="sexualy"
+                    name="sexualy" 
+                    id="female" 
+                    value="female"
+                    >
+                  <label class="form-check-label" for="female">
+                    Nữ
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Neu la choose company method signup -->
+        <div *ngIf="userType === 'company'" class="company">
+          <div class="row form-group">
+            <div class="col-md-3">
+              Tên công ty/Tổ chức &nbsp;<span style="color: red;">*</span>
+            </div>
+            <div class="col-md-5">
+              <input 
+                type="text" 
+                class="form-control"
+                formControlName="tencongty"
+                >
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-3">
+              Địa chỉ
+            </div>
+            <div class="col-md-5">
+                <input 
+                type="text" 
+                class="form-control"
+                formControlName="diachiCongty"
+                >
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-3">
+              Số điện thoại công ty
+            </div>
+            <div class="col-md-5">
+                <input 
+                type="text" 
+                class="form-control"
+                formControlName="sdtCongty"
+                >
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-3">
+              Mã số thuế  &nbsp;<span style="color: red;">*</span>
+            </div>
+            <div class="col-md-5">
+                <input 
+                type="text" 
+                class="form-control"
+                formControlName="masothue"
+                >
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-3">
+              Người đại diện  &nbsp;<span style="color: red;">*</span>
+            </div>
+            <div class="col-md-5">
+                <input 
+                type="text" 
+                class="form-control"
+                formControlName="nguoidaidien"
+                >
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-3">
+              Số điện thoại &nbsp;<span style="color: red;">*</span>
+            </div>
+            <div class="col-md-5">
+              <input 
+                type="text" 
+                class="form-control"
+                formControlName="sdtnguoidaidien"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col-md-3">
+            Email &nbsp; 
+            <span style="color: red">*</span>
+          </div>
+          <div class="col-md-5">
+              <input 
+              type="text" 
+              class="form-control"
+              formControlName="email"
+              >
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-3">
+            Mật khẩu &nbsp; 
+            <span style="color: red">*</span>
+          </div>
+          <div class="col-md-5">
+              <input 
+              type="text" 
+              class="form-control"
+              formControlName="password"
+              >
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-3">
+            Nhập lại mật khẩu &nbsp; 
+            <span style="color: red">*</span>
+          </div>
+          <div class="col-md-5">
+              <input 
+              type="text" 
+              class="form-control"
+              formControlName="repassword"
+              >
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-3">
+            Mã xác nhận &nbsp; 
+            <span style="color: red">*</span>
+          </div>
+          <div class="col-md-5">
+              <re-captcha (resolved)="resolved($event)" siteKey="6LdcqVwUAAAAAL-tauTFDnb-nZseFOLSe-3i-dgs"></re-captcha>
+          </div>
+        </div>
+       
+        <div class="row form-group">
+          <div class="col-md-5 offset-md-3">
+            <button class="btn btn-sm btn-success">Tạo tài khoản</button>
+            &nbsp;
+            <a href="" class="btn btn-sm btn-primary">Quay lại</a>
+          </div>
+        </div>
+      </form>
+    </div>    
+  </div>
+  
+  
+</div>
+
+
+===================== signup.component.ts =====
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+
+@Component({
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
+})
+export class SignupComponent implements OnInit {
+  signupForm: FormGroup;
+  userType = 'personal';
+  submittedSignUp = false;
+  constructor(
+    private formBuilder: FormBuilder,
+  ) { }
+
+  ngOnInit() {
+    this.signupForm = this.formBuilder.group({
+      hotenPesonal: ['', [Validators.required]],
+      sdtPersonal: ['', [Validators.required]],
+      ngaysinhPersonal: ['', [Validators.required]],
+      diachiPersonal: ['', [Validators.required]],
+      sexualy: ['', [Validators.required]],
+      tencongty: ['', [Validators.required]],
+      diachiCongty: ['', [Validators.required]],
+      sdtCongty: ['', [Validators.required]],
+      masothue: ['', [Validators.required]],
+      nguoidaidien : ['', Validators.required],
+      sdtnguoidaidien: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      repassword: ['', [Validators.required]]
+    });
+  }
+  get f() { return this.signupForm.controls; }
+
+  onSubmitSignUp() {
+    this.submittedSignUp = true;
+    console.log(this.signupForm.value);
+    if (this.signupForm.invalid) {
+      console.log("Eror signup");
+    }else{
+      
+      
+    }
+
+  }
+
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response ${captchaResponse}:`);
+  }
+
+}

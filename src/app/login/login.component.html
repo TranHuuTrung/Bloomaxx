@@ -19,7 +19,7 @@
                   <input 
                     type="text"
                     formControlName="username" 
-                    [ngClass]="{'is-invalid': (submitted && f.username.errors)|| (submitted && isWrong) , 'is-valid': submitted && f.username.valid}"
+                    [ngClass]="{'is-invalid': submitted && f.username.errors , 'is-valid': submitted && f.username.valid}"
                     class="form-control" 
                     placeholder="username" 
                     aria-describedby="basic-addon1"
@@ -40,7 +40,7 @@
                   <input 
                     type="password" 
                     formControlName="password"
-                    [ngClass]="{'is-invalid': (submitted && f.username.errors)|| (submitted && isWrong), 'is-valid': submitted && f.password.valid}"
+                    [ngClass]="{'is-invalid': submitted && f.password.errors, 'is-valid': submitted && f.password.valid}"
                     class="form-control" 
                     placeholder="password" 
                     aria-describedby="basic-addon2"
@@ -60,7 +60,7 @@
               </div>
               <div class="form-group">
                 <p>Bạn chưa có tài khoản?</p>
-                <a href="" class="btn btn-primary">Đăng kí</a>
+                <a routerLink="signup" class="btn btn-primary">Đăng kí</a>
               </div>
             </form>
           </div>

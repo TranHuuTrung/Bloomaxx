@@ -24,12 +24,16 @@ export class UserService {
   }
 
   login(userName: string, password: string): Observable<any> {
-    const url = `/login`;
+    const url = `login`;
     return this.apiService.post(url, {
-      'username': userName,
+      'userName': userName,
       'password': password
     });
-  
+  }
+
+  logout(){
+    const url = `logout`;
+    return this.apiService.post(url);
   }
 
 }

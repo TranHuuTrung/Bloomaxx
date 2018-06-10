@@ -1,0 +1,185 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmitSignUp()">
+  <!-- Neu la choose person method signup -->
+  <div class="person">
+    <div class="row form-group">
+      <div class="col-md-3">
+        Họ và tên &nbsp;<span style="color: red;">*</span>
+      </div>
+      <div class="col-md-5">
+        <input 
+          type="text" 
+          class="form-control"
+          formControlName="hotenPesonal" 
+          [ngClass]="{ 'is-invalid': submitted && f.hotenPesonal.errors, 'is-valid': submitted && f.hotenPesonal.valid}" 
+        >
+        <div *ngIf="submitted && f.hotenPesonal.errors" class="invalid-feedback">
+          <div *ngIf="f.hotenPesonal.errors.required">First Name is required</div>
+          <div *ngIf="f.hotenPesonal.errors.minlength">First Name must be at least 8 charactors</div>
+        </div>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-3">
+        Số điện thoại &nbsp;<span style="color: red;">*</span>
+      </div>
+      <div class="col-md-5">
+        <input 
+          type="text" 
+          class="form-control"
+          formControlName="sdtPersonal" 
+          [ngClass]="{ 'is-invalid': submitted && f.sdtPersonal.errors, 'is-valid': submitted && f.sdtPersonal.valid}"  
+        >
+        <div *ngIf="submitted && f.sdtPersonal.errors" class="invalid-feedback">
+          <div *ngIf="f.sdtPersonal.errors.required">Phonenumber is required</div>
+        </div>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-3">
+        Ngày sinh &nbsp;<span style="color: red;">*</span>
+      </div>
+      <div class="col-md-5">
+        <div class="input-group">
+          <input 
+            type="date" 
+            class="form-control" 
+            id="birthday" 
+            placeholder="Amount"
+            formControlName="ngaysinhPersonal"
+            [ngClass]="{ 'is-invalid': submitted && f.ngaysinhPersonal.errors, 'is-valid': submitted && f.ngaysinhPersonal.valid}"
+          >
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="birthday">
+              <i class="fa fa-calendar"></i>
+            </label>
+          </div>
+          <div *ngIf="submitted && f.ngaysinhPersonal.errors" class="invalid-feedback">
+            <div *ngIf="f.ngaysinhPersonal.errors.required">Birthday is required</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-3">
+        Địa chỉ
+      </div>
+      <div class="col-md-5">
+        <input 
+          type="text" 
+          class="form-control"
+          formControlName="diachiPersonal"
+          [ngClass]="{ 'is-invalid': submitted && f.diachiPersonal.errors, 'is-valid': submitted && f.diachiPersonal.valid}" 
+        >
+        <div *ngIf="submitted && f.diachiPersonal.errors" class="invalid-feedback">
+          <div *ngIf="f.diachiPersonal.errors.required">Address is required</div>
+        </div>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-3">
+        Giới tính
+      </div>
+      <div class="col-md-5">
+        <div class="row pl-15">
+          <div class="form-check col-xs-4 col-sm-3 col-md-3">
+            <input 
+              class="form-check-input" 
+              type="radio" 
+              formControlName="sexualy"
+              name="sexualy" 
+              id="male" 
+              value="male"
+              >
+            <label class="form-check-label" for="male">
+              Nam
+            </label>
+          </div>
+          <div class="form-check col-xs-4 col-sm-3 col-md-3">
+            <input 
+              class="form-check-input" 
+              type="radio"
+              formControlName="sexualy"
+              name="sexualy" 
+              id="female" 
+              value="female"
+              >
+            <label class="form-check-label" for="female">
+              Nữ
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-md-3">
+      Email &nbsp; 
+      <span style="color: red">*</span>
+    </div>
+    <div class="col-md-5">
+        <input 
+        type="text" 
+        class="form-control"
+        formControlName="email"
+        [ngClass]="{ 'is-invalid': submitted && f.email.errors, 'is-valid': submitted && f.email.valid}" 
+      >
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+        <div *ngIf="f.email.errors.email">Email isn't valid</div>
+      </div>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-md-3">
+      Mật khẩu &nbsp; 
+      <span style="color: red">*</span>
+    </div>
+    <div class="col-md-5">
+        <input 
+        type="password" 
+        class="form-control"
+        formControlName="password"
+        [ngClass]="{ 'is-invalid': submitted && f.password.errors, 'is-valid': submitted && f.password.valid}" 
+      >
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+        <div *ngIf="f.password.errors.minlength">Password must be at least 8 charactors</div>
+      </div>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-md-3">
+      Nhập lại mật khẩu &nbsp; 
+      <span style="color: red">*</span>
+    </div>
+    <div class="col-md-5">
+        <input 
+        type="password" 
+        class="form-control"
+        formControlName="repassword"
+        [ngClass]="{ 'is-invalid': submitted && f.repassword.errors, 'is-valid': submitted && f.repassword.valid}" 
+      >
+      <div *ngIf="submitted && f.repassword.errors" class="invalid-feedback">
+        <div *ngIf="f.repassword.errors.required">Repassword is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-md-3">
+      Mã xác nhận &nbsp; 
+      <span style="color: red">*</span>
+    </div>
+    <div class="col-md-5">
+        <re-captcha (resolved)="resolved($event)" siteKey="6LdcqVwUAAAAAL-tauTFDnb-nZseFOLSe-3i-dgs"></re-captcha>
+    </div>
+  </div>
+  
+  <div class="row form-group">
+    <div class="col-md-5 offset-md-3">
+      <button class="btn btn-sm btn-success">Tạo tài khoản</button>
+      &nbsp;
+      <a href="" class="btn btn-sm btn-primary">Quay lại</a>
+    </div>
+  </div>
+</form>
